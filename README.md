@@ -10,115 +10,36 @@ Our implementation is based upon [MSDNET](https://github.com/gaohuang/MSDNet) an
 class="center">
 </p>
 
-Our full method, named **Anytime Dense Prediction with Confidence (ADP-C)**, achieves the same level of final accuracy with HRNet-w48, and meanwhile significantly reduces total computation.
-
-### Main Results
-
-
-|     Setting (HRNet-W48)     | model | exit1 | exit2 | exit3 |  exit4   | mean mIoU | exit1 | exit2 | exit3 |   exit4   | mean GFLOPs |
-| ------------------------- | :---: | :---: | :---: | :---: | :------: | :---------: | :---: | :---: | :---: | :-------: | :---------: |
-|          HRNet-W48          |   -   |   -   |   -   |   80.7   |      -      |   -   |   -   |   -   |   696.2   |      -      |
-|         EE           | [model](https://drive.google.com/file/d/11AnwHiNmWZqtXbulJOGWTUCjlYfFweFB/view?usp=sharing) | 34.3  | 59.0  | 76.9  |   80.4   |    62.7     | 521.6 | 717.9 | 914.2 |  1110.5   |    816.0    |
-|       EE + RH        | [model](https://drive.google.com/file/d/1zkgTRm8HyBqKA7dolM1i3AW6vs2V9AkE/view?usp=sharing) | 44.6  | 60.2  | 76.6  |   79.9   |    65.3     | 41.9  | 105.6 | 368.0 |   701.3   |    304.2    |
-| ADP-C: EE + RH + CA  | [model](https://drive.google.com/file/d/1Un4XDqPOubGnKmm2vUis5CHM-EFOZsm0/view?usp=sharing) | 44.3  | 60.1  | 76.8  | **81.3** |  **65.7**   | 41.9  | 93.9  | 259.3 | **387.1** |  **195.6**  |
-
-
-
-## Installation
-Please check [INSTALL.md](INSTALL.md) for installation instructions. 
-
-## Evaluation on pretrained models
-
-Download our pretrained model from the table above and specify its location by `TEST.MODEL_FILE`
-
-**Early Exits (EE)**
-```bash
-python tools/test_ee.py --cfg experiments/cityscapes/w48.yaml \
-TEST.MODEL_FILE <PRETRAINED MODEL>.pth
-```
-This should give
-```
-34.33	59.01	76.90	80.43	62.67
-```
-
-**Redesigned Heads (RH)**
-```bash
-python tools/test_ee.py --cfg experiments/cityscapes/w48.yaml \
-EXIT.TYPE 'flex' EXIT.INTER_CHANNEL 128 \
-TEST.MODEL_FILE <PRETRAINED MODEL>.pth
-```
-
-This should give
-```
-44.61	60.19	76.64	79.89	65.33
-```
-
-**ADP-C (EE + RH + CA)**
-```bash
-python tools/test_ee.py \
---cfg experiments/cityscapes/w48.yaml MODEL.NAME model_anytime  \
-EXIT.TYPE 'flex' EXIT.INTER_CHANNEL 128 \
-MASK.USE True MASK.CONF_THRE 0.998 \
-TEST.MODEL_FILE <PRETRAINED MODEL>.pth
-```
-
-This should give
-```
-44.34	60.13	76.82	81.31	65.65
-```
-
-**ADP-C (EE + RH + CA)** (w18) [Pretrained w18 with ADP-C](https://drive.google.com/file/d/1XxEH0acJZUGO2UDquCZx2asjHyneKYNT/view?usp=sharing)
-```bash
-python tools/test_ee.py \
---cfg experiments/cityscapes/w18.yaml MODEL.NAME model_anytime  \
-EXIT.TYPE 'flex' EXIT.INTER_CHANNEL 64 \
-MASK.USE True MASK.CONF_THRE 0.998 \
-TEST.MODEL_FILE <PRETRAINED MODEL>.pth
-```
-
-This should give
-```
-40.83	48.19	68.26	77.02	58.57
+|
 ```
 
 
 ## Train
 
-There are two configurations for the backbone HRnet model, `w48.yaml` and `w18.yaml` under `experimens/cityscapes`. Note that the following commands are for using `HRNet-w48` as backbone. Please change `EXIT.INTER_CHANNEL` to `64` when using `w18` as backbone.
-
-**Early Exits (EE)**
-
+**Backbone **
 ````bash
-python -m torch.distributed.launch tools/train_ee.py \
---cfg experiments/cityscapes/w48.yaml
+python train_backbone.py \
 ````
 
 
-**Redesigned Heads (RH)**
+**Multi-Exit Network (MEN)**
 
 ````bash
-python -m torch.distributed.launch tools/train_ee.py \
---cfg experiments/cityscapes/w48.yaml \
-EXIT.TYPE 'flex' EXIT.INTER_CHANNEL 128
+python train_menm.py \
 ````
 
 
-**Confidence Adatative (CA)**
+**Self-Distillation Network (SDN)**
 
 ````bash
-python -m torch.distributed.launch tools/train_ee.py \
---cfg experiments/cityscapes/w48.yaml \
-MASK.USE True MASK.CONF_THRE 0.998
+python train_self.py \
 ````
 
 
-**ADP-C (EE + RH + CA)**
+**Multi-Level Collaborative Self-Distillation Network (MLCSD-Net)**
 
 ````bash
-python -m torch.distributed.launch tools/train_ee.py \
---cfg experiments/cityscapes/w48.yaml \
-EXIT.TYPE 'flex' EXIT.INTER_CHANNEL 128 \
-MASK.USE True MASK.CONF_THRE 0.998
+python train_mlcsd.py \
 ````
 
 Evaulation results will be generated at the end of training.
