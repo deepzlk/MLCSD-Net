@@ -3,7 +3,7 @@
 
 Official PyTorch implementation for the following paper:
 
-Our implementation is based upon [HRNet-Semantic-Segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1).
+Our implementation is based upon [MSDNET]([https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1](https://github.com/gaohuang/MSDNet)) and [RepDistiller]([[https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1](https://github.com/gaohuang/MSDNet)](https://github.com/HobbitLong/RepDistiller))
 
 ---
 <p align="center">
