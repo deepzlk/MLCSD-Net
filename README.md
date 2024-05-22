@@ -10,8 +10,7 @@ Our implementation is based upon [MSDNET](https://github.com/gaohuang/MSDNet) an
 class="center">
 </p>
 
-|
-```
+
 
 
 ## Train
