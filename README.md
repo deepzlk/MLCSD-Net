@@ -16,7 +16,8 @@ class="center">
 
 ## Train
 
-**Backbone **
+**Multi-Exit Network (MEN)**
+
 ````bash
 python train_backbone.py \
 ````
