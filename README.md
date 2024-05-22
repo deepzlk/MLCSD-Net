@@ -4,7 +4,6 @@
 Official PyTorch implementation for the following paper:
 
 Our implementation is based upon [MSDNET](https://github.com/gaohuang/MSDNet) and [RepDistiller](https://github.com/HobbitLong/RepDistiller)
-[Pretrained w18 with ADP-C](https://drive.google.com/file/d/1XxEH0acJZUGO2UDquCZx2asjHyneKYNT/view?usp=sharing)
 ---
 <p align="center">
 <img src="https://user-images.githubusercontent.com/29576696/161406403-15c6da87-cd09-4203-adaa-09cc2badf1c1.jpeg" width=100% height=100% 
