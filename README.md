@@ -3,11 +3,9 @@
 
 ---
 <p align="center">
-<img src="https://user-images.githubusercontent.com/29576696/161406403-15c6da87-cd09-4203-adaa-09cc2badf1c1.jpeg" width=100% height=100% 
+<img src= "https://github.com/deepzlk/MLCSD-Net/tree/main/scripts/fig.pdf" width=100% height=100% 
 class="center">
 </p>
-
-
 
 
 ## Train
