@@ -1,10 +1,8 @@
 # MLCSD-Net
 
 ---
-<p align="center">
-<img src="(https://github.com/deepzlk/MLCSD-Net/scripts/fig1.png)" width=100% height=100% 
-class="center">
-</p>
+![](/scripts/fig1.png)
+
 ## Train
 
 **Multi-Exit Network (MEN)**
