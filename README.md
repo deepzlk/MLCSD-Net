@@ -2,7 +2,7 @@
 
 ---
 <p align="center">
-<img src="(https://github.com/deepzlk/MLCSD-Net/tree/main/scripts/fig1.png)" width=100% height=100% 
+<img src="(https://github.com/deepzlk/MLCSD-Net/scripts/fig1.png)" width=100% height=100% 
 class="center">
 </p>
 ## Train
