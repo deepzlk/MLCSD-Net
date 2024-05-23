@@ -1,9 +1,6 @@
 # MLCSD-Net
 
 
-Official PyTorch implementation for the following paper:
-
-Our implementation is based upon [MSDNET](https://github.com/gaohuang/MSDNet) and [RepDistiller](https://github.com/HobbitLong/RepDistiller)
 ---
 <p align="center">
 <img src="https://user-images.githubusercontent.com/29576696/161406403-15c6da87-cd09-4203-adaa-09cc2badf1c1.jpeg" width=100% height=100% 
@@ -52,27 +49,7 @@ Evaulation results will be generated at the end of training.
 
 - `config.yaml`: the configuration file. 
 
-## Test
-
-**Evaluation** 
-
-```
-python tools/test_ee.py --cfg <Your output directoy>/config.yaml
-```
-
 ## Acknowledgement
-This repository is built upon [HRNet-Semantic-Segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/pytorch-v1.1).
+This repository is built upon [MSDNET](https://github.com/gaohuang/MSDNet) and [RepDistiller](https://github.com/HobbitLong/RepDistiller)
 
-## License
-This project is released under the MIT license. Please see the [LICENSE](LICENSE) file for more information.
 
-## Citation
-If you find this repository helpful, please consider citing:
-```
-@Article{liu2022anytime,
-  author  = {Zhuang Liu and Zhiqiu Xu and Hung-Ju Wang and Trevor Darrell and Evan Shelhamer},
-  title   = {Anytime Dense Prediction with Confidence Adaptivity},
-  journal = {International Conference on Learning Representations (ICLR)},
-  year    = {2022},
-}
-```
