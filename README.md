@@ -39,16 +39,6 @@ python train_self.py \
 python train_mlcsd.py \
 ````
 
-Evaulation results will be generated at the end of training.
-
-- `result.txt`: contains mIOU for each exit and the average mIOU of the four exits. 
-
-- `test_stats.json`: contains FLOPs and number of parameters.
-
-- `final_state.pth`: the trained model file.
-
-- `config.yaml`: the configuration file. 
-
 ## Acknowledgement
 This repository is built upon [MSDNET](https://github.com/gaohuang/MSDNet) and [RepDistiller](https://github.com/HobbitLong/RepDistiller)
 
